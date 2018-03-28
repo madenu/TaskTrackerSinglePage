@@ -19,3 +19,5 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+import task_tracker_init from "./components/task_tracker"
+task_tracker_init()
