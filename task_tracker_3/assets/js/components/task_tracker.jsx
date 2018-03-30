@@ -1,52 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Provider, connect } from 'react-redux';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-// import PostForm from './post-form';
+import Nav from './nav';
+import TaskForm from './task_form'
 
-export default function microblog_init() {
+export default function microblog_init(store) {
   let root = document.getElementById('root');
-  ReactDOM.render(<TaskTracker />, root);
+  ReactDOM.render(<Provider store={store}>
+    <TaskTracker state={store.getState()}/>
+  </Provider>, root);
 }
 
-class TaskTracker extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      tasks: [],
-      users: [],
-    };
-
-    // this.request_tasks();
-    // this.request_users();
-  }
-/*
-  request_posts() {
-    $.ajax("/api/v1/posts", {
-      method: "get",
-      dataType: "json",
-      contentType: "application/json; charset=UTF-8",
-      success: (resp) => {
-        this.setState(_.extend(this.state, { posts: resp.data }));
-      },
-    });
-  }
-
-  request_users() {
-    $.ajax("/api/v1/users", {
-      method: "get",
-      dataType: "json",
-      contentType: "application/json; charset=UTF-8",
-      success: (resp) => {
-        this.setState(_.extend(this.state, { users: resp.data }));
-      },
-    });
-  } */
-
-  render() {
-    return (
-      <h1>TASK TRACKER GOES HERE</h1>
-    );
-  }
+function TaskTracker() {
+  return (<Router>
+    <div>
+      <Nav/>
+      <h1>TASK TRACKER</h1>
+      <Route path='/' exact={true} render={() => <TaskForm />}/>
+      <Route path='/' exact={true} render={() => <h1>TASKS FEED</h1>}/>
+      <Route path='/users' exact={true} render={() => <h1>ALL USERS</h1>}/>
+    </div>
+  </Router>);
 }
