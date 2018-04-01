@@ -1,5 +1,8 @@
 # TaskTracker3
 
+## Design Notes
+* New users may only be created by going through the registration link presented at the login page.
+* The page is only viewable to users who are logged in.
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`

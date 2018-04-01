@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Nav from './nav';
 import TaskForm from './task_form'
+import TaskFeed from './task_feed'
 
 export default function microblog_init(store) {
   let root = document.getElementById('root');
@@ -17,10 +18,10 @@ function TaskTracker() {
   return (<Router>
     <div>
       <Nav/>
-      <h1>TASK TRACKER</h1>
       <Route path='/' exact={true} render={() => <TaskForm />}/>
-      <Route path='/' exact={true} render={() => <h1>TASKS FEED</h1>}/>
+      <Route path='/' exact={true} render={() => <TaskFeed />}/>
       <Route path='/users' exact={true} render={() => <h1>ALL USERS</h1>}/>
+      <Route path='/users/:user_id' exact={true} render={() => <h1>TASKS FOR USER ID</h1>}/>
     </div>
   </Router>);
 }

@@ -22,9 +22,9 @@ import deepFreeze from 'deep-freeze'
 
 function tasks(state = [], action) {
   switch (action.type) {
-    case 'LIST_TASKS':
+    case 'TASKS_UPDATE':
       return [...action.tasks]
-    case 'ADD_POST':
+    case 'TASKS_ADD_ONE':
       return [action.task, ...state]
     default:
       return state
@@ -33,8 +33,10 @@ function tasks(state = [], action) {
 
 function users(state = [], action) {
   switch (action.type) {
-    case 'LIST_USERS':
+    case 'USERS_UPDATE':
       return [...action.users]
+    case 'USERS_ADD_ONE':
+      return [action.user, ...state]
     default:
       return state
   }
