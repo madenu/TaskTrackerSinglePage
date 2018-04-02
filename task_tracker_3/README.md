@@ -3,8 +3,8 @@
 ## TODO
 ### Right Now!
 * ~~Mark tasks as completed~~
-* Create tasks
-* Render tasks for a specific user
+* ~~Create tasks~~
+* ~~Render tasks for a specific user~~
 ### Top Priority
 * Register users
 * Store passwords with Elixir.Comeonin

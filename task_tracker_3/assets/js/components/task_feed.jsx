@@ -4,9 +4,15 @@ import {Card, CardBody} from 'reactstrap'
 
 function TaskFeed(props) {
 
-  // TODO render task.is_completed
-  console.log("props: ", props)
-  let tasks = props.tasks.map(task => <Card key={task.id} onClick={() => {
+  let tasks = null
+  if (props.filtered) {
+    tasks = props.filtered
+  } else {
+    tasks = props.tasks
+  }
+
+  console.log("tasks: ", tasks)
+  tasks = tasks.map(task => <Card key={task.id} onClick={() => {
       console.log('task: ', task)
       let data = Object.assign({}, task, {user_id: task.user.id})
       props.dispatch({type: "UPDATE_FORM", data: data})
@@ -19,6 +25,7 @@ function TaskFeed(props) {
       <time>{task.minutes_spent}</time>
     </CardBody>
   </Card>)
+  console.log("tasks: ", tasks)
 
   return <div>{tasks}</div>
 }

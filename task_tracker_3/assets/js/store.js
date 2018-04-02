@@ -64,9 +64,6 @@ function form(state = empty_form, action) {
 }
 
 function root_reducer(state, action) {
-  console.log('reducer', action)
-  // {posts, users, form} is ES6 shorthand for
-  // {posts: posts, users: users, form: form}
   let reducer = combineReducers({
     tasks,
     users,
