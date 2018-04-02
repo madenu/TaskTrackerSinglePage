@@ -12,7 +12,7 @@ import deepFreeze from 'deep-freeze'
  *   form: {
  *     description: '',
  *     is_completed: false,
- *     time_spent: 0,
+ *     minutes_spent: 0,
  *     title: '',
  *     user_id: null
  *   }
@@ -45,7 +45,7 @@ function users(state = [], action) {
 let empty_form = {
   description: '',
   is_completed: false,
-  time_spent: 0,
+  minutes_spent: 0,
   title: '',
   user_id: ''
 }

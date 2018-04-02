@@ -4,15 +4,16 @@ import {Card, CardBody} from 'reactstrap';
 
 function TaskFeed(props) {
 
-  // TODO map each task to a card
   // TODO render task.is_completed
-  console.log("props.tasks: ", props.tasks)
-  let tasks = props.tasks.map((task) => <Card key={task.id}>
+  let tasks = props.tasks.map((task) => <Card key={task.id} onClick={() => {
+    props.dispatch({type: "UPDATE_FORM", data: task})
+    window.scrollTo(0,0)}
+  } >
     <CardBody>
       <h3>{task.title}</h3>
       <h4>{task.user.name}</h4>
       <p>{task.description}</p>
-      <time>{task.time_spent}</time>
+      <time>{task.minutes_spent}</time>
     </CardBody>
   </Card>)
 

@@ -12,9 +12,6 @@ export default function Nav(props) {
         <NavItem>
           <NavLink to='/users' href='#' className='nav-link'>All Users</NavLink>
         </NavItem>
-        <NavItem>
-          <NavLink to='/new_task' href='#' className='nav-link'>New Task</NavLink>
-        </NavItem>
       </ul>
       <span className='navbar-text'>
         user@host

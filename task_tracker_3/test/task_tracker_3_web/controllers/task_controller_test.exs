@@ -4,9 +4,9 @@ defmodule TaskTracker3Web.TaskControllerTest do
   alias TaskTracker3.Tasks
   alias TaskTracker3.Tasks.Task
 
-  @create_attrs %{description: "some description", is_completed: true, time_spent: ~T[14:00:00.000000], title: "some title"}
-  @update_attrs %{description: "some updated description", is_completed: false, time_spent: ~T[15:01:01.000000], title: "some updated title"}
-  @invalid_attrs %{description: nil, is_completed: nil, time_spent: nil, title: nil}
+  @create_attrs %{description: "some description", is_completed: true, minutes_spent: ~T[14:00:00.000000], title: "some title"}
+  @update_attrs %{description: "some updated description", is_completed: false, minutes_spent: ~T[15:01:01.000000], title: "some updated title"}
+  @invalid_attrs %{description: nil, is_completed: nil, minutes_spent: nil, title: nil}
 
   def fixture(:task) do
     {:ok, task} = Tasks.create_task(@create_attrs)
@@ -34,7 +34,7 @@ defmodule TaskTracker3Web.TaskControllerTest do
         "id" => id,
         "description" => "some description",
         "is_completed" => true,
-        "time_spent" => ~T[14:00:00.000000],
+        "minutes_spent" => ~T[14:00:00.000000],
         "title" => "some title"}
     end
 
@@ -56,7 +56,7 @@ defmodule TaskTracker3Web.TaskControllerTest do
         "id" => id,
         "description" => "some updated description",
         "is_completed" => false,
-        "time_spent" => ~T[15:01:01.000000],
+        "minutes_spent" => ~T[15:01:01.000000],
         "title" => "some updated title"}
     end
 

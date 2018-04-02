@@ -41,8 +41,8 @@ function TaskForm(props) {
       <Input tname='description' type='textarea' value={props.form.description} onChange={update}/>
     </FormGroup>
     <FormGroup>
-      <Label for='time_spent'>Time Spent</Label>
-      <Input tname='time_spent' type='time' value={props.form.description} onChange={update}/>
+      <Label for='minutes_spent'>Time Spent</Label>
+      <Input tname='minutes_spent' type='number' onKeyDown={() => {}} step='15' value={props.form.minutes_spent} onChange={update}/>
     </FormGroup>
     <Button onClick={submit} className='btn btn-primary'>Submit</Button>
     &nbsp;

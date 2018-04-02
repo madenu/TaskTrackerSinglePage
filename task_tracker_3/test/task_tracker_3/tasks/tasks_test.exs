@@ -6,9 +6,9 @@ defmodule TaskTracker3.TasksTest do
   describe "tasks" do
     alias TaskTracker3.Tasks.Task
 
-    @valid_attrs %{description: "some description", is_completed: true, time_spent: ~T[14:00:00.000000], title: "some title"}
-    @update_attrs %{description: "some updated description", is_completed: false, time_spent: ~T[15:01:01.000000], title: "some updated title"}
-    @invalid_attrs %{description: nil, is_completed: nil, time_spent: nil, title: nil}
+    @valid_attrs %{description: "some description", is_completed: true, minutes_spent: ~T[14:00:00.000000], title: "some title"}
+    @update_attrs %{description: "some updated description", is_completed: false, minutes_spent: ~T[15:01:01.000000], title: "some updated title"}
+    @invalid_attrs %{description: nil, is_completed: nil, minutes_spent: nil, title: nil}
 
     def task_fixture(attrs \\ %{}) do
       {:ok, task} =
@@ -33,7 +33,7 @@ defmodule TaskTracker3.TasksTest do
       assert {:ok, %Task{} = task} = Tasks.create_task(@valid_attrs)
       assert task.description == "some description"
       assert task.is_completed == true
-      assert task.time_spent == ~T[14:00:00.000000]
+      assert task.minutes_spent == ~T[14:00:00.000000]
       assert task.title == "some title"
     end
 
@@ -47,7 +47,7 @@ defmodule TaskTracker3.TasksTest do
       assert %Task{} = task
       assert task.description == "some updated description"
       assert task.is_completed == false
-      assert task.time_spent == ~T[15:01:01.000000]
+      assert task.minutes_spent == ~T[15:01:01.000000]
       assert task.title == "some updated title"
     end
 
