@@ -3,7 +3,7 @@ defmodule TaskTracker3.Users.User do
   import Ecto.Changeset
 
   schema "user" do
-    field(:name, :string)
+    field(:name, :string, default: "")
 
     timestamps()
   end

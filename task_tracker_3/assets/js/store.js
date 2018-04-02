@@ -47,7 +47,7 @@ let empty_form = {
   is_completed: false,
   minutes_spent: 0,
   title: '',
-  user_id: ''
+  user_id: 1
 }
 
 function form(state = empty_form, action) {

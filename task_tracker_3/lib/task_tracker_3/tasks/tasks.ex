@@ -51,9 +51,13 @@ defmodule TaskTracker3.Tasks do
 
   """
   def create_task(attrs \\ %{}) do
-    %Task{}
-    |> Task.changeset(attrs)
-    |> Repo.insert()
+    {:ok, task} =
+      %Task{}
+      |> Task.changeset(attrs)
+      |> Repo.insert()
+
+    task = Repo.preload(task, :user)
+    {:ok, task}
   end
 
   @doc """
@@ -70,6 +74,7 @@ defmodule TaskTracker3.Tasks do
   """
   def update_task(%Task{} = task, attrs) do
     task
+    |> Repo.preload(:user)
     |> Task.changeset(attrs)
     |> Repo.update()
   end

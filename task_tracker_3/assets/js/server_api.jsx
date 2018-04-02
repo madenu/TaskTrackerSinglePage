@@ -29,14 +29,16 @@ class Server {
 
   submit_task(data) {
     var xmlhttp = new XMLHttpRequest()
-    xmlhttp.open('POST', '/json-handler')
+    xmlhttp.open('POST', '/api/v1/tasks')
     xmlhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
     xmlhttp.onload = () => {
-      console.log('submit_post()')
-      console.log(JSON.parse(xmlhttp.response.data))
+      console.log('server_api.submit_task()')
+      store.dispatch({type: 'TASKS_ADD_ONE', task: JSON.parse(xmlhttp.responseText).data})
     }
-    // TODO clean up line below
-    xmlhttp.send(JSON.stringify(data))
+    let params = {
+      task: data
+    }
+    xmlhttp.send(JSON.stringify(params))
   }
 }
 
