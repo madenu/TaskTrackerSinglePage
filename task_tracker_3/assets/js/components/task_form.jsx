@@ -5,7 +5,6 @@ import server_api from '../server_api'
 
 function TaskForm(props) {
   function update(ev) {
-    console.log('event: ', ev)
     let tgt = ev.target
     let data = {}
     data[tgt.name] = tgt.value

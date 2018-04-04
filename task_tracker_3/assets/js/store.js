@@ -6,15 +6,23 @@ import deepFreeze from 'deep-freeze'
 
 /*
  *  state layout:
- *  {
- *   tasks: [... Tasks ...],
- *   users: [... Users ...],
- *   form: {
- *     description: '',
- *     is_completed: false,
- *     minutes_spent: 0,
- *     title: '',
- *     user_id: null
+ *   {
+ *    tasks: [... Tasks ...],
+ *    users: [... Users ...],
+ *    form: {
+ *      description: '',
+ *      is_completed: false,
+ *      minutes_spent: 0,
+ *      title: '',
+ *      user_id: null
+ *    }
+ *   login_form {
+ *      user_name: '',
+ *      password: ''
+ *   }
+ *   token {
+ *     user_id: '',
+ *     token: ''
  *   }
  * }
  *
@@ -50,6 +58,29 @@ let empty_form = {
   user_id: 1
 }
 
+let empty_login_form = {
+  username: "",
+  password: ""
+}
+
+function login_form(state = empty_login_form, action) {
+  switch (action.type) {
+    case 'UPDATE_LOGIN_FORM':
+      return Object.assign({}, state, action.data)
+    default:
+      return state
+  }
+}
+
+function token(state = null, action) {
+  switch (action.type) {
+    case 'SET_TOKEN':
+      return action.token;
+    default:
+      return state;
+  }
+}
+
 function form(state = empty_form, action) {
   switch (action.type) {
     case 'UPDATE_FORM':
@@ -67,10 +98,11 @@ function root_reducer(state, action) {
   let reducer = combineReducers({
     tasks,
     users,
-    form
+    form,
+    login_form,
+    token
   })
   state = reducer(state, action)
-  console.log('state', state)
   return deepFreeze(state)
 }
 

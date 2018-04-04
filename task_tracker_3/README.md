@@ -1,20 +1,22 @@
 # TaskTracker3
 
+Registering and logging in should use secure password authentication.
+Passwords should be stored hashed in the database. (see the Elixir Comeonin module).
+Phoenix sessions don't help with an SPA. You'll need to look into Phoenix.Token to handle user login and AJAX request authentication.
+Your deployed app should only be accessible via HTTPS. Use Lets Encrypt and certbot.
+
 ## TODO
-### Right Now!
-* ~~Mark tasks as completed~~
-* ~~Create tasks~~
-* ~~Render tasks for a specific user~~
-### Top Priority
 * Register users
 * Store passwords with Elixir.Comeonin
 * Use Phoenix.Token for using login and XMLHttpRequest auth
 * Deploy with HTTPS using Let's Encrypt and CertBot
+
 ### Non-essential
 * Change :hover property of Tasks
 * Disable creation of duplicate tasks (i.e. Edit tasks)
 * Change JSON controller routes
 * Enforce 15-min increments (Render hours and minutes)
+* Delete user accounts
 
 ## Design Notes
 * New users may only be created by going through the registration link presented at the login page.

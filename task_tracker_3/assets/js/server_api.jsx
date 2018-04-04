@@ -40,6 +40,17 @@ class Server {
     }
     xmlhttp.send(JSON.stringify(params))
   }
+
+  submit_login(data) {
+    var xmlhttp = new XMLHttpRequest()
+    xmlhttp.open('POST', '/api/v1/token')
+    xmlhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
+    xmlhttp.onload = () => {
+      console.log('server_api.submit_task()')
+      store.dispatch({type: 'SET_TOKEN', token: JSON.parse(xmlhttp.responseText)})
+    }
+    xmlhttp.send(JSON.stringify(data))
+  }
 }
 
 export default new Server()
