@@ -6,6 +6,8 @@ Phoenix sessions don't help with an SPA. You'll need to look into Phoenix.Token 
 Your deployed app should only be accessible via HTTPS. Use Lets Encrypt and certbot.
 
 ## TODO
+* Note that the only users are from mix seeds.ex
+* Make sure to update the README.md
 * Register users
 * Store passwords with Elixir.Comeonin
 * Use Phoenix.Token for using login and XMLHttpRequest auth
