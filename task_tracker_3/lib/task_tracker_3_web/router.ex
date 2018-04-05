@@ -18,6 +18,8 @@ defmodule TaskTracker3Web.Router do
     pipe_through(:browser)
 
     get("/", PageController, :index)
+    get("/users", PageController, :index)
+    get("/users/:id", PageController, :index)
   end
 
   # Other scopes may use custom stacks.

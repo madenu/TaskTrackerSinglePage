@@ -1,8 +1,22 @@
-# TaskTracker3
 
-## TODO
-* authenticate task creation
+Web Dev Spring 2018 HW08 Status
 
+Answer the following questions:
+
+
+1. What's your name?
+  Matthias Denu
+
+2. What's the URL of the github repo with your work for this HW?
+  github.com/matthiasdenu/cs5610hw08
+
+3. What's the version number of your github release?
+  v1
+
+4. What's the URL that you deployed to?
+  task3.matthiasdenu.me
+
+5. Is your app functionality complete? If not, what's missing?
 ## Design Notes
 This project is a successfully deployed, HTTPS, single-page, task tracker web application. Registered users may securely log in with their username and password to manage tasks.
 
@@ -17,3 +31,15 @@ Only logged in users may create tasks, but everyone has read only access to the 
 * The form has 15 min increments for minutes spent, but doesn't disable custom input.
 * When a registered user logs in, their ID is shown instead of their username.
 * Currently anyone can create a task on the site, but I do not want to attempt to fix this, because it would require me to redeploy, which is too risky this close to the deadline
+
+6. Is your app properly deployed? If not, what went wrong?
+  Yes
+
+
+
+
+
+And here's a list of tasks for grading comments. Just leave this here:
+ - Development
+ - Deployment
+ - Submission
